@@ -1,0 +1,58 @@
+{% extends 'layout.html' %} {% block content %}
+
+<!--Cargar los archivos est+aticos para usarlos -->
+{% load static %}
+
+<header class="row bg-black rounded-3">
+  <div class="col-md-4 d-flex justify-content-center align-items-center">
+    <img src="{% static 'portfolio/g53.png' %}" class="rounded-circle" style="width: 18rem;" alt=""/>
+  </div>
+  <div class="col-md-8 my-auto">
+    <h1>Hola! yo soy<strong>Roy Quillca</strong></h1>
+    <h3>Soy un Data Scientist | <img src="{% static 'portfolio/peru-flag-icon.svg' %}" class="flag-icon img-fluid" alt="Peru Flag"></h3>
+    <p>
+      Hola! Aquí Roy.
+      Soy un 🤖 Data Scientist con foco en Data Engineering apasionado por la programación, por el 📊 procesamiento de datos y la creación de soluciones innovadoras. Con amplia experiencia en herramientas como 🐍 Python, SQL, Pyspark, 🧮 numpy y 🐼 pandas, me enorgullezco de trabajar con datos de manera eficiente y efectiva.
+    </p>
+    <p>
+      Mi formación en ingeniería civil me ha dado una sólida base en el análisis y resolución de problemas complejos, lo que me ha permitido aplicar esta habilidad en el mundo de la programación con gran éxito. De hecho, fue durante la pandemia del COVID-19 cuando decidí incursionar en el mundo de la programación y descubrí mi verdadera pasión por el procesamiento y análisis de datos. Desde entonces, he estado comprometido en mejorar mis habilidades y conocimientos en IT para ofrecer soluciones aún más innovadoras y eficientes.
+    </p>
+    <p>
+      Si buscas un profesional que no solo tenga la experiencia en herramientas como 🐍 Python, SQL, Pyspark, 🧮 numpy y 🐼 pandas, sino que también tenga la capacidad de abordar problemas de manera creativa y efectiva, ¡no dudes en contactarme! Estoy dispuesto a afrontar cualquier desafío y trabajar contigo para lograr los resultados que necesitas.
+    </p>
+    <a
+      href="{% static 'portfolio/CV-Data_Scientist.pdf' %}"
+      class="btn btn-primary btn-lg rounded-3 my-3"
+      target="_blank"
+      >Download CV</a
+    >
+  </div>
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My Projects</h3>
+
+    <p class="section-caption">
+    Aquí encontrarás una selección de mis proyectos personales relacionados con programación y ciencia de datos. Cada proyecto representa mi pasión por la exploración, el aprendizaje y la aplicación de tecnologías para resolver problemas. ¡Explora y descubre más sobre mi trabajo!
+    </p>
+
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black text-light card-project">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top" />
+            <div class="card-body">
+                
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+                {% if project.url %}
+                <a href="{{ project.url }}" class="btn btn-light rounded-3 btn-sm" target="_blank" >{{ project.url }}</a>
+                {% endif %}
+
+            </div>
+        </div>        
+    </div>
+    {% endfor %}
+    {% endblock %}
+</div>

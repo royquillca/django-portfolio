@@ -1,0 +1,21 @@
+/* GENERAL FONTS */
+body {
+    background:  #090909;
+}
+
+.bg-black {
+    background: #000000;
+}
+
+/* HOME FONTS */
+
+.card-project:hover {
+    border: 1.5px solid #fff;
+    cursor: pointer;
+}
+
+.flag-icon {
+    width: 1.5em;
+    height: 1.5em;
+    fill: #D91023; /* Color rojo de la bandera */
+  }
